@@ -1,0 +1,49 @@
+# dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.*
+!.env.example
+
+# build output
+dist/
+build/
+out/
+.next/
+.cache/
+
+# TypeScript
+*.tsbuildinfo
+
+# testing
+coverage/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs / editors
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.swp
+
+# Bun
+bun.lockb
+
+# Prisma
+prisma/migrations/
+
+# MongoDB
+*.mongodb
