@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { z } from "zod";
 import { Message } from "../../models/message.js";
 import { postToAws } from "../../utils/aws/post-aws.js";
+import { generateText } from "ai";
 
 export const createMessage = async (req: Request, res: Response) => {
     try {
@@ -31,12 +32,21 @@ export const createMessage = async (req: Request, res: Response) => {
         });
 
         //placeholder
-        const assistantResponse = "This is a placeholder response";
+        // const assistantResponse = "This is a placeholder response";
+        const assistantResponse = await generateText({
+            model: "gemini-2.5-flash",
+            messages: [
+                {
+                    role: "user",
+                    content: message,
+                },
+            ],
+        })
 
         const assistantMessage = await Message.create({
             conversationId,
             role: 'assistant',
-            content: assistantResponse,
+            content: assistantResponse.text,
         });
 
         return res.status(201).json({
