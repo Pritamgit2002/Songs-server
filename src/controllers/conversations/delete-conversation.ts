@@ -5,7 +5,12 @@ import { Conversation } from '../../models/conversation.js'
 export const deleteConversation = async (req: Request, res: Response) => {
     try {
         const { conversationId } = z_delete_conversation_params.parse(req.params)
-        const conversation = await Conversation.findByIdAndDelete({ _id: conversationId })
+        console.log("router.replace", conversationId)
+        const conversation = await Conversation.findOneAndDelete({
+            conversationId: conversationId
+        })
+
+        console.log("router.replace", conversation)
 
         if (!conversation) {
             return res.status(404).json({ error: 'Conversation not found' })

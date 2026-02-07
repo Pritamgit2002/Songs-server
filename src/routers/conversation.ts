@@ -7,10 +7,10 @@ import { getAllConversations } from "../controllers/conversations/get-all-conver
 
 const router = Router()
 
-router.post('/', createConversation)
+router.post('/:conversationId', createConversation)
 router.get('/', getAllConversations)
-router.get('/:_id', getConversationById)
-router.delete('/:_id', deleteConversation)
-router.put('/:_id', updateConversation)
+router.get('/:conversationId', getConversationById)
+router.delete('/:conversationId', deleteConversation)
+router.put('/:conversationId', updateConversation)
 
 export { router as conversation_router }
