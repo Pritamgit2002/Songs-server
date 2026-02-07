@@ -34,7 +34,7 @@ export const createMessage = async (req: Request, res: Response) => {
         //placeholder
         // const assistantResponse = "This is a placeholder response";
         const assistantResponse = await generateText({
-            model: "gemini-2.5-flash",
+            model: "openai/gpt-5-nano",
             messages: [
                 {
                     role: "user",

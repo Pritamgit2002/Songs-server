@@ -30,5 +30,5 @@ app.use(
     })
 )
 
-app.use('/api/v1/conversations', conversation_router)
-app.use('/api/v1/messages', message_router)
+app.use('/api/v1/conversation', conversation_router)
+app.use('/api/v1/message', message_router)

@@ -14,6 +14,7 @@ type TEnv = {
     node_env: TNodeEnv
     api_port: number
     db_url: string | 'NA'
+    openai_api_key: string
     awsAccessKeyId: string
     awsSecretAccessKey: string
     awsRegion: string
@@ -24,6 +25,7 @@ export const env: TEnv = {
     node_env: process.env.NODE_ENV as TNodeEnv,
     api_port: Number(process.env.API_PORT),
     db_url: process.env.DB_URL || 'NA',
+    openai_api_key: process.env.OPENAI_API_KEY || 'NA',
     awsAccessKeyId: process.env.AWS_ACCESS_KEY_ID || 'NA',
     awsSecretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || 'NA',
     awsRegion: process.env.AWS_REGION || 'NA',
