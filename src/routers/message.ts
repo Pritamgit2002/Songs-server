@@ -5,7 +5,7 @@ import { deleteMessages } from "../controllers/messages/delete-messages.js";
 
 const router = Router()
 
-router.post('/', createMessage)
+router.post('/:conversationId', createMessage)
 router.get('/:conversationId', getAllMessagesByConversationId)
 router.delete('/:conversationId', deleteMessages)
 

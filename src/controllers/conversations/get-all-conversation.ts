@@ -3,7 +3,7 @@ import { Conversation } from "../../models/conversation.js";
 
 export const getAllConversations = async (req: Request, res: Response) => {
     try {
-        const conversations = await Conversation.find()
+        const conversations = await Conversation.find().sort({ createdAt: -1 })
         return res.status(200).json({
             message: 'Conversations fetched successfully',
             data: conversations

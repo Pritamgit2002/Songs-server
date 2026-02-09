@@ -12,6 +12,7 @@
     "lint:fix": "eslint --fix ."
   },
   "dependencies": {
+    "@ai-sdk/openai": "^3.0.26",
     "@aws-sdk/client-s3": "^3.981.0",
     "ai": "^6.0.68",
     "axios": "^1.13.4",
@@ -23,6 +24,7 @@
     "mongodb": "^7.0.0",
     "mongoose": "^9.1.5",
     "morgan": "^1.10.1",
+    "openai": "^6.18.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {

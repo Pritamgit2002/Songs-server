@@ -1,5 +1,21 @@
 import { Schema, model } from "mongoose";
-import { MessageDocument } from "../types/message.js";
+import { MessageDocument, Song } from "../types/message.js";
+
+const songSchema = new Schema<Song>({
+    songTitle: {
+        type: String,
+        required: true
+    },
+    creator: {
+        type: String,
+        required: true
+    },
+    reason: {
+        type: String,
+        required: true
+    }
+}, { _id: false }); // Disable _id for subdocuments
+
 
 const messageSchema = new Schema<MessageDocument>({
     conversationId: {
@@ -14,7 +30,7 @@ const messageSchema = new Schema<MessageDocument>({
     },
     content: {
         type: String,
-        required: true
+        default: ""
     },
     file_url: {
         type: String,
@@ -23,10 +39,14 @@ const messageSchema = new Schema<MessageDocument>({
     extractedText: {
         type: String,
         default: null
+    },
+    songs: {
+        type: [songSchema],
+        default: []
     }
 }, {
     timestamps: true
-})
+});
 
 // Compound index for efficient conversation retrieval
 messageSchema.index({ conversationId: 1, createdAt: 1 });
